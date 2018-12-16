@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 4
+Sheet 1 5
 Title ""
 Date ""
 Rev ""
@@ -14,66 +14,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Wire Wire Line
-	850  1200 850  1300
-$Comp
-L power:+5V #PWR03
-U 1 1 5B5E7690
-P 1750 1000
-F 0 "#PWR03" H 1750 850 50  0001 C CNN
-F 1 "+5V" H 1765 1173 50  0000 C CNN
-F 2 "" H 1750 1000 50  0001 C CNN
-F 3 "" H 1750 1000 50  0001 C CNN
-	1    1750 1000
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDS #PWR04
-U 1 1 5B5E76DE
-P 1750 1300
-F 0 "#PWR04" H 1750 1050 50  0001 C CNN
-F 1 "GNDS" H 1755 1127 50  0000 C CNN
-F 2 "" H 1750 1300 50  0001 C CNN
-F 3 "" H 1750 1300 50  0001 C CNN
-	1    1750 1300
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1700 1000 1750 1000
-Wire Wire Line
-	1700 1200 1750 1200
-$Comp
-L power:GNDPWR #PWR02
-U 1 1 5B5E772E
-P 800 1300
-F 0 "#PWR02" H 800 1100 50  0001 C CNN
-F 1 "GNDPWR" H 804 1146 50  0000 C CNN
-F 2 "" H 800 1250 50  0001 C CNN
-F 3 "" H 800 1250 50  0001 C CNN
-	1    800  1300
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	800  1300 850  1300
-Wire Wire Line
-	800  1000 800  1100
-Wire Wire Line
-	800  1100 850  1100
-$Comp
-L power:+12P #PWR01
-U 1 1 5B5E7CC4
-P 800 1000
-F 0 "#PWR01" H 800 850 50  0001 C CNN
-F 1 "+12P" H 815 1173 50  0000 C CNN
-F 2 "" H 800 1000 50  0001 C CNN
-F 3 "" H 800 1000 50  0001 C CNN
-	1    800  1000
-	1    0    0    -1  
-$EndComp
-Wire Notes Line
-	1250 950  1250 1500
-Wire Wire Line
-	1750 1200 1750 1300
 $Comp
 L Mechanical:MountingHole MH1
 U 1 1 5B5F4053
@@ -118,90 +58,399 @@ F 3 "~" H 2700 7700 50  0001 C CNN
 	1    2700 7700
 	1    0    0    -1  
 $EndComp
-Entry Wire Line
-	9000 1950 9100 2050
-Entry Wire Line
-	9000 2050 9100 2150
-Text Label 8850 1950 0    50   ~ 0
-SDA
-Text Label 8850 2050 0    50   ~ 0
-SCL
-Wire Wire Line
-	8850 1950 9000 1950
-Wire Wire Line
-	8850 2050 9000 2050
-$Comp
-L Connector_Generic:Conn_01x02 J1
-U 1 1 5BAAD4C2
-P 8650 2050
-F 0 "J1" H 8570 1725 50  0000 C CNN
-F 1 "Conn_01x02" H 8570 1816 50  0000 C CNN
-F 2 "" H 8650 2050 50  0001 C CNN
-F 3 "~" H 8650 2050 50  0001 C CNN
-	1    8650 2050
-	-1   0    0    1   
-$EndComp
 $Sheet
-S 4450 1850 1500 900 
+S 3700 1850 1500 900 
 U 5BF42CBD
 F0 "Power Conversion" 50
-F1 "power_converter edit/buck.sch" 50
+F1 "power_converter/buck.sch" 50
+F2 "SCL_iso" I R 5200 2550 50 
+F3 "SDA_iso" I R 5200 2650 50 
 $EndSheet
 $Sheet
-S 6650 1950 1300 850 
+S 5900 1950 1300 850 
 U 5BF83F3A
 F0 "Pi" 50
 F1 "pi/pi.sch" 50
-F2 "SDA_iso" I L 6650 2050 50 
-F3 "SCL_iso" I L 6650 2150 50 
+F2 "SDA_iso" I L 5900 2050 50 
+F3 "SCL_iso" I L 5900 2150 50 
 $EndSheet
+$Sheet
+S 3900 3200 1300 750 
+U 5C035B7A
+F0 "Sensor Breakout" 50
+F1 "sensor_suite/_saved_sensor_suite.sch" 50
+F2 "SCL_iso" I R 5200 3300 50 
+F3 "SDA_iso" I R 5200 3400 50 
+$EndSheet
+Entry Wire Line
+	5500 3300 5600 3400
+Entry Wire Line
+	5500 3400 5600 3500
+Wire Wire Line
+	5500 3300 5200 3300
+Wire Wire Line
+	5500 3400 5200 3400
+Entry Wire Line
+	5600 2050 5700 2150
+Entry Wire Line
+	5600 1950 5700 2050
+Wire Wire Line
+	5700 2050 5900 2050
+Wire Wire Line
+	5700 2150 5900 2150
+Entry Wire Line
+	5600 3700 5700 3800
+Entry Wire Line
+	5600 3600 5700 3700
+Wire Wire Line
+	6150 3700 5700 3700
+Wire Wire Line
+	6150 3800 5700 3800
+Text Label 5850 3700 0    50   ~ 0
+SCL_iso
+Text Label 5850 3800 0    50   ~ 0
+SDA_iso
 $Comp
-L Connector_Generic:Conn_02x20_Counter_Clockwise J2
-U 1 1 5BF84F08
-P 7100 4400
-F 0 "J2" H 7150 5517 50  0000 C CNN
-F 1 "PCA" H 7150 5426 50  0000 C CNN
-F 2 "" H 7100 4400 50  0001 C CNN
-F 3 "~" H 7100 4400 50  0001 C CNN
-	1    7100 4400
+L Connector_Generic:Conn_01x24 J?
+U 1 1 5C14591A
+P 6350 4600
+F 0 "J?" H 6430 4592 50  0000 L CNN
+F 1 "PCA9685" H 6430 4501 50  0000 L CNN
+F 2 "" H 6350 4600 50  0001 C CNN
+F 3 "https://www.adafruit.com/product/815" H 6350 4600 50  0001 C CNN
+	1    6350 4600
 	1    0    0    -1  
 $EndComp
+NoConn ~ 6150 3600
+$Comp
+L power:GND #PWR?
+U 1 1 5C145A9E
+P 6550 3500
+F 0 "#PWR?" H 6550 3250 50  0001 C CNN
+F 1 "GND" H 6555 3327 50  0000 C CNN
+F 2 "" H 6550 3500 50  0001 C CNN
+F 3 "" H 6550 3500 50  0001 C CNN
+	1    6550 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 3500 6150 3350
+Wire Wire Line
+	6150 3350 6550 3350
+Wire Wire Line
+	6550 3350 6550 3500
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5C15B216
+P 9650 1650
+F 0 "#FLG?" H 9650 1725 50  0001 C CNN
+F 1 "PWR_FLAG" H 9650 1824 50  0000 C CNN
+F 2 "" H 9650 1650 50  0001 C CNN
+F 3 "~" H 9650 1650 50  0001 C CNN
+	1    9650 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5C15B2F0
+P 10150 1650
+F 0 "#FLG?" H 10150 1725 50  0001 C CNN
+F 1 "PWR_FLAG" H 10150 1824 50  0000 C CNN
+F 2 "" H 10150 1650 50  0001 C CNN
+F 3 "~" H 10150 1650 50  0001 C CNN
+	1    10150 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5C15B6F7
+P 10650 1650
+F 0 "#FLG?" H 10650 1725 50  0001 C CNN
+F 1 "PWR_FLAG" H 10650 1824 50  0000 C CNN
+F 2 "" H 10650 1650 50  0001 C CNN
+F 3 "~" H 10650 1650 50  0001 C CNN
+	1    10650 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5C15BAFE
+P 9150 950
+F 0 "#FLG?" H 9150 1025 50  0001 C CNN
+F 1 "PWR_FLAG" H 9150 1123 50  0000 C CNN
+F 2 "" H 9150 950 50  0001 C CNN
+F 3 "~" H 9150 950 50  0001 C CNN
+	1    9150 950 
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5C15BF05
+P 9650 950
+F 0 "#FLG?" H 9650 1025 50  0001 C CNN
+F 1 "PWR_FLAG" H 9650 1123 50  0000 C CNN
+F 2 "" H 9650 950 50  0001 C CNN
+F 3 "~" H 9650 950 50  0001 C CNN
+	1    9650 950 
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5C15C30C
+P 10150 950
+F 0 "#FLG?" H 10150 1025 50  0001 C CNN
+F 1 "PWR_FLAG" H 10150 1123 50  0000 C CNN
+F 2 "" H 10150 950 50  0001 C CNN
+F 3 "~" H 10150 950 50  0001 C CNN
+	1    10150 950 
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GNDPWR #PWR?
+U 1 1 5C15C768
+P 9650 1700
+F 0 "#PWR?" H 9650 1500 50  0001 C CNN
+F 1 "GNDPWR" H 9654 1546 50  0000 C CNN
+F 2 "" H 9650 1650 50  0001 C CNN
+F 3 "" H 9650 1650 50  0001 C CNN
+	1    9650 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDS #PWR?
+U 1 1 5C15C7B0
+P 10150 1700
+F 0 "#PWR?" H 10150 1450 50  0001 C CNN
+F 1 "GNDS" H 10155 1527 50  0000 C CNN
+F 2 "" H 10150 1700 50  0001 C CNN
+F 3 "" H 10150 1700 50  0001 C CNN
+	1    10150 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5C15C83E
+P 10650 1700
+F 0 "#PWR?" H 10650 1450 50  0001 C CNN
+F 1 "GND" H 10655 1527 50  0000 C CNN
+F 2 "" H 10650 1700 50  0001 C CNN
+F 3 "" H 10650 1700 50  0001 C CNN
+	1    10650 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+48V #PWR?
+U 1 1 5C15E107
+P 9150 900
+F 0 "#PWR?" H 9150 750 50  0001 C CNN
+F 1 "+48V" H 9165 1073 50  0000 C CNN
+F 2 "" H 9150 900 50  0001 C CNN
+F 3 "" H 9150 900 50  0001 C CNN
+	1    9150 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12P #PWR?
+U 1 1 5C15E14F
+P 9650 900
+F 0 "#PWR?" H 9650 750 50  0001 C CNN
+F 1 "+12P" H 9665 1073 50  0000 C CNN
+F 2 "" H 9650 900 50  0001 C CNN
+F 3 "" H 9650 900 50  0001 C CNN
+	1    9650 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5C15E19E
+P 10150 900
+F 0 "#PWR?" H 10150 750 50  0001 C CNN
+F 1 "+5V" H 10165 1073 50  0000 C CNN
+F 2 "" H 10150 900 50  0001 C CNN
+F 3 "" H 10150 900 50  0001 C CNN
+	1    10150 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5P #PWR?
+U 1 1 5C15E314
+P 10650 900
+F 0 "#PWR?" H 10650 750 50  0001 C CNN
+F 1 "+5P" H 10665 1073 50  0000 C CNN
+F 2 "" H 10650 900 50  0001 C CNN
+F 3 "" H 10650 900 50  0001 C CNN
+	1    10650 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5C15E355
+P 10650 950
+F 0 "#FLG?" H 10650 1025 50  0001 C CNN
+F 1 "PWR_FLAG" H 10650 1123 50  0000 C CNN
+F 2 "" H 10650 950 50  0001 C CNN
+F 3 "~" H 10650 950 50  0001 C CNN
+	1    10650 950 
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9650 1650 9650 1700
+Wire Wire Line
+	10150 1650 10150 1700
+Wire Wire Line
+	10650 1650 10650 1700
+Wire Wire Line
+	10150 900  10150 950 
+Wire Wire Line
+	9650 900  9650 950 
+Wire Wire Line
+	9150 900  9150 950 
+Wire Wire Line
+	10650 900  10650 950 
+Wire Wire Line
+	6750 3900 6750 3850
+$Comp
+L power:+5V #PWR?
+U 1 1 5C162556
+P 6750 3850
+F 0 "#PWR?" H 6750 3700 50  0001 C CNN
+F 1 "+5V" H 6765 4023 50  0000 C CNN
+F 2 "" H 6750 3850 50  0001 C CNN
+F 3 "" H 6750 3850 50  0001 C CNN
+	1    6750 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5P #PWR?
+U 1 1 5C162597
+P 6900 3950
+F 0 "#PWR?" H 6900 3800 50  0001 C CNN
+F 1 "+5P" H 6915 4123 50  0000 C CNN
+F 2 "" H 6900 3950 50  0001 C CNN
+F 3 "" H 6900 3950 50  0001 C CNN
+	1    6900 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 3900 6750 3900
+Wire Wire Line
+	6900 4000 6900 3950
+Wire Wire Line
+	6150 4000 6900 4000
 $Sheet
-S 4650 3200 1300 750 
-U 5C035B7A
-F0 "Sheet5C035B79" 50
-F1 "sensor_suite/_saved_sensor_suite.sch" 50
-F2 "SCL_iso" I R 5950 3300 50 
-F3 "SDA_iso" I R 5950 3400 50 
+S 3700 4350 1500 900 
+U 5C164307
+F0 "Thruster Breakout" 50
+F1 "esc_breakout/esc_breakout.sch" 50
+F2 "SDA_iso" I R 5200 4550 50 
+F3 "SCL_iso" I R 5200 4450 50 
 $EndSheet
 Entry Wire Line
-	6250 3300 6350 3400
+	5500 2550 5600 2650
 Entry Wire Line
-	6250 3400 6350 3500
+	5500 2650 5600 2750
 Wire Wire Line
-	6250 3300 5950 3300
+	5500 2550 5200 2550
 Wire Wire Line
-	6250 3400 5950 3400
+	5200 2650 5500 2650
+$Comp
+L power:GND #PWR?
+U 1 1 5C164228
+P 5750 5800
+F 0 "#PWR?" H 5750 5550 50  0001 C CNN
+F 1 "GND" H 5755 5627 50  0000 C CNN
+F 2 "" H 5750 5800 50  0001 C CNN
+F 3 "" H 5750 5800 50  0001 C CNN
+	1    5750 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5C1657E3
+P 5850 4150
+F 0 "#PWR?" H 5850 4000 50  0001 C CNN
+F 1 "+5V" H 5865 4323 50  0000 C CNN
+F 2 "" H 5850 4150 50  0001 C CNN
+F 3 "" H 5850 4150 50  0001 C CNN
+	1    5850 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 4200 5850 4150
+Wire Wire Line
+	5850 4200 6150 4200
+Wire Wire Line
+	5850 4500 5850 4200
+Wire Wire Line
+	5850 4500 6150 4500
+Connection ~ 5850 4200
+Wire Wire Line
+	5850 4800 5850 4500
+Wire Wire Line
+	5850 4800 6150 4800
+Connection ~ 5850 4500
+Wire Wire Line
+	5850 5100 5850 4800
+Wire Wire Line
+	5850 5100 6150 5100
+Connection ~ 5850 4800
+Wire Wire Line
+	5850 5400 5850 5100
+Wire Wire Line
+	5850 5400 6150 5400
+Connection ~ 5850 5100
+Wire Wire Line
+	5850 5700 5850 5400
+Wire Wire Line
+	5850 5700 6150 5700
+Connection ~ 5850 5400
+Wire Wire Line
+	5750 5800 6150 5800
+Wire Wire Line
+	5750 5800 5750 5500
+Wire Wire Line
+	5750 5500 6150 5500
+Connection ~ 5750 5800
+Wire Wire Line
+	5750 5500 5750 5200
+Wire Wire Line
+	5750 5200 6150 5200
+Connection ~ 5750 5500
+Wire Wire Line
+	5750 5200 5750 4900
+Wire Wire Line
+	5750 4900 6150 4900
+Connection ~ 5750 5200
+Wire Wire Line
+	5750 4900 5750 4600
+Wire Wire Line
+	5750 4600 6150 4600
+Connection ~ 5750 4900
+Wire Wire Line
+	5750 4600 5750 4300
+Wire Wire Line
+	5750 4300 6150 4300
+Connection ~ 5750 4600
+Text HLabel 6150 4100 0    50   Input ~ 0
+PWM0
+Text HLabel 6150 4400 0    50   Input ~ 0
+PWM1
+Text HLabel 6150 4700 0    50   Input ~ 0
+PWM2
+Text HLabel 6150 5000 0    50   Input ~ 0
+PWM3
+Text HLabel 6150 5300 0    50   Input ~ 0
+PWM4
+Text HLabel 6150 5600 0    50   Input ~ 0
+PWM5
 Entry Wire Line
-	6350 2050 6450 2150
+	5500 4450 5600 4550
 Entry Wire Line
-	6350 1950 6450 2050
+	5500 4550 5600 4650
 Wire Wire Line
-	6450 2050 6650 2050
+	5500 4550 5200 4550
 Wire Wire Line
-	6450 2150 6650 2150
-Entry Wire Line
-	6350 3700 6450 3800
-Entry Wire Line
-	6350 3600 6450 3700
-Wire Wire Line
-	6900 3700 6450 3700
-Wire Wire Line
-	6900 3800 6450 3800
+	5200 4450 5500 4450
 Wire Bus Line
-	6350 1850 6350 4250
-Text Label 6600 3700 0    50   ~ 0
-SCL_iso
-Text Label 6600 3800 0    50   ~ 0
-SDA_iso
+	5600 1850 5600 5300
 $EndSCHEMATC
